@@ -8,11 +8,11 @@ sys.path.append('/Users/shiqiang/Projects/mp3tag/mp3tag')
 for p in sys.path:
     print(p)
 
-from mp3tag import mp3tag
+import mp3tag as m3g
 
 music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
 
-mpt = mp3tag()
+mpt = m3g.mp3tag()
 mpt.get_version()
 mpt.search_folder(music_path)
 
