@@ -12,5 +12,9 @@ from mp3tag import mp3tag
 
 music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
 
-mp3tag.get_version()
-mp3tag.search_folder(music_path)
+mpt = mp3tag()
+mpt.get_version()
+mpt.search_folder(music_path)
+
+# mp3tag.get_version()
+# mp3tag.search_folder(music_path)

@@ -27,7 +27,7 @@ class tag_reader():
             print(e)
 
     # Detect the encoding and decode
-    def decodeData(bin_seq):
+    def decodeData(self, bin_seq):
         # print(bin_seq)
         result = chardet.detect(bin_seq)
         # print(result)
@@ -47,15 +47,15 @@ class tag_reader():
         tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
 
         if(tags['title']):
-            tags['title'] = decodeData(tags['title'])
+            tags['title'] = self.decodeData(tags['title'])
 
         tags['artist'] = tag_data[33:63].strip(STRIP_CHARS)
         if(tags['artist']):
-            tags['artist'] = decodeData(tags['artist'])
+            tags['artist'] = self.decodeData(tags['artist'])
 
         tags['album'] = tag_data[63:93].strip(STRIP_CHARS)
         if(tags['album']):
-            tags['album'] = decodeData(tags['album'])
+            tags['album'] = self.decodeData(tags['album'])
 
         tags['year'] = tag_data[93:97].strip(STRIP_CHARS)
         # if(tags['year']):
@@ -64,7 +64,7 @@ class tag_reader():
         tags['comment'] = tag_data[97:127].strip(STRIP_CHARS)
         #@TODO Need to analyze comment to verfiy v1 or v1.1
         if(tags['comment']):
-            tags['comment'] = decodeData(tags['comment'])
+            tags['comment'] = self.decodeData(tags['comment'])
 
         tags['genre'] = ord(tag_data[127:128])
 

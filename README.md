@@ -10,6 +10,28 @@ Tools for read and modify mp3 tag information, you can search wiki to know more 
 ## Feature
 * Read mp3 idv3 information under specific folder
 
+## Usage
+
+```python
+from mp3tag import mp3tag
+
+music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
+
+mpt = mp3tag()
+mpt.get_version()
+mpt.search_folder(music_path)
+```
+
+Result
+
+```sh
+$ python3 examples/tag_example.py
+{'title': None, 'artist': 'Pure Music', 'album': 'นลตไร๛ว๚', 'year': b'', 'comment': b'', 'genre': 0}
+{'title': 'And One', 'artist': 'Linkin Park', 'album': 'Underground 1.0', 'year': b'', 'comment': b'', 'genre': 0}
+
+```
+
+
 ## Reference
 * [ATool](https://github.com/Am0xil/ATool)
 * [使用Python读取Mp3的标签信息](http://www.edulinks.cn/2018/06/22/20180622-python-read-id3v1-tag/)
