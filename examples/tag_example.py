@@ -1,18 +1,23 @@
 import sys
 
+# from mp3tag.mp3tag import mp3tag
+
 # 这里改为自己本机 pyID3 的存储目录
 sys.path.append('/Users/shiqiang/Projects/mp3tag/mp3tag')
 
 for p in sys.path:
     print(p)
 
-import mp3tag
+import mp3tag as mpt
+# import mp3tag.tag_reader
 # import reader as mpr
 
 # import pyid3
-mpt = mp3tag()
+# mpt = mp3tag()
 mpt.get_version()
 
+import mp3tag
+mpc = mp3tag()
 
 # from pyID3 import tag
 # import os

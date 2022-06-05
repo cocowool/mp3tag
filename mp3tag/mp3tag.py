@@ -1,4 +1,8 @@
 
+
+def get_version():
+    print("mp3tag version is 0.0.1")
+
 class mp3tag:
     def __init__(self):
         print("mp3tag init.")
