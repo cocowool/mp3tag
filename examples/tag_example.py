@@ -8,16 +8,19 @@ sys.path.append('/Users/shiqiang/Projects/mp3tag/mp3tag')
 for p in sys.path:
     print(p)
 
-import mp3tag as mpt
+from mp3tag import mp3tag
+from tag_reader import tag_reader as mtr
 # import mp3tag.tag_reader
 # import reader as mpr
 
 # import pyid3
 # mpt = mp3tag()
-mpt.get_version()
+mp3tag.get_version()
 
-import mp3tag
-mpc = mp3tag()
+mtr.get_version()
+
+# import mp3tag
+# mpc = mp3tag()
 
 # from pyID3 import tag
 # import os
