@@ -20,7 +20,7 @@ setuptools.setup(
     project_urls={
         "Bug Tracker":"https://github.com/cocowool/mp3tag/issues"
     },
-    package_dir={"":"src"}
+    package_dir={"":"src"},
     packages=setuptools.find_packages(where="src"),
     install_requires=[],
 
