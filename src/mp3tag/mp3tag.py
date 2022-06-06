@@ -1,7 +1,7 @@
 import os
-from tag_reader import tag_reader
+from mp3tag.tag_reader import tag_reader
 
-class mp3tag:
+class id3tag:
     def __init__(self):
         print("mp3tag init.")
 

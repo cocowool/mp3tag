@@ -1,6 +1,6 @@
-import mp3tag
-import tag_reader
-import tag_writer
+# import id3tag
+# import tag_reader
+# import tag_writer
 # from .mp3tag import tag_reader
 # from .mp3tag import tag_writer
 
