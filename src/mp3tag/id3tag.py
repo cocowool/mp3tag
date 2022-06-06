@@ -5,7 +5,7 @@ import chardet
 
 class id3tag():
     def __init__(self):
-        print("tag_reader init.")
+        print("id3tag init.")
 
     def get_tag(self, file_name):
         # print("Tag reader version is 0.0.1")

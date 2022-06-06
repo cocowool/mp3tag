@@ -3,7 +3,7 @@ from mp3tag.id3tag import id3tag
 
 # Return the package version
 def get_version():
-    print("mp3tag version is 0.0.1")
+    print("mp3tag version is 0.0.2")
 
 # Find mp3 file under specific folder
 # 在指定的目录下查找 mp3 文件
