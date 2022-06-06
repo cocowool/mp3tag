@@ -2,8 +2,8 @@ import os
 import string
 import base64
 import chardet
-    
-class tag_reader():
+
+class id3tag():
     def __init__(self):
         print("tag_reader init.")
 
