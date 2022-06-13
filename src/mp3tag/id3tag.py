@@ -7,6 +7,12 @@ class id3tag():
     def __init__(self):
         print("id3tag init.")
 
+    # Analyze the file and which id3 version
+    def get_version(self, file_name):
+        fh = open(file_name, "rb")
+        head_bin = fh.read(10)
+        print(head_bin)
+
     def get_tag(self, file_name):
         # print("Tag reader version is 0.0.1")
         try:
@@ -72,6 +78,9 @@ class id3tag():
             tags['comment'] = self.decodeData(tags['comment'])
 
         tags['genre'] = ord(tag_data[127:128])
+
+
+        # tags['albumartis'] = tag_data[].strip(STRIP_CHARS)
 
         return tags
 

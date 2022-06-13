@@ -35,5 +35,6 @@ $ python3 examples/tag_example.py
 
 
 ## Reference
+* [id3.org](https://id3.org/Home)
 * [ATool](https://github.com/Am0xil/ATool)
 * [使用Python读取Mp3的标签信息](http://www.edulinks.cn/2018/06/22/20180622-python-read-id3v1-tag/)

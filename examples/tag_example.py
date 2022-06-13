@@ -1,5 +1,5 @@
 import sys
-
+from tinytag import TinyTag
 # from mp3tag.mp3tag import mp3tag
 
 # 这里改为自己本机 pyID3 的存储目录
@@ -22,6 +22,12 @@ music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
 
 file_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/RADWIMPS (ラッドウィンプス)-針と棘.mp3'
 mp3tag.get_tag(file_path)
+
+mp3tag.get_version(file_path)
+
+# tag = TinyTag.get(file_path)
+# print("Result from tinytag : \n")
+# print(tag)
 
 # mpt = id3tag()
 # # mpt.get_version()
