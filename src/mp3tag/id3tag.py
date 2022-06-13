@@ -30,12 +30,17 @@ class id3tag():
     def decodeData(self, bin_seq):
         # print(bin_seq)
         result = chardet.detect(bin_seq)
-        # print(result)
+        # print("before encode : " + bin_seq.decode("utf-8"))
+        print(bin_seq)
+        print(result)
         if(result['confidence'] > 0):
             try:
+                print( bin_seq.decode(result['encoding']) )
+                print( bin_seq.decode("utf-8") )
                 return bin_seq.decode(result['encoding'])
-            except UnicodeDecodeError:
-                return 'Decode Failed'
+            except UnicodeDecodeError as e:
+                print('Decode Failed : ' + str(e))
+                return False
 
 
     # Get ID3v1 tag data

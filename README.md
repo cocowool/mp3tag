@@ -6,9 +6,11 @@ Tools for read and modify mp3 tag information, you can search wiki to know more 
 
 ## 特性
 * 支持读取某个文件夹下 mp3 文件的 idv3 信息
+* 输出统一为 utf-8 编码
 
 ## Feature
 * Read mp3 idv3 information under specific folder
+* output attribute information in utf-8
 
 ## Usage
 
