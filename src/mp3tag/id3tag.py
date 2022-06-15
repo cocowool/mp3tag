@@ -12,9 +12,15 @@ class id3tag():
     def tag_analyze(self, file_name):
         fh = open(file_name, "rb")
         head_bin = fh.read(10)
+
+        fhex = open(file_name, "rb")
+        hex_data = fhex.read().hex()
         print(head_bin)
         if head_bin[0:3] == b'ID3':
             print("ID3v2 found.")
+            print("Version: ID3v2." + str(int(hex_data[6:8])) )
+            # print(int(hex_data[6:8]))
+            # print(head_bin[4].decode('utf-8'))
 
 
     def get_tag(self, file_name):
