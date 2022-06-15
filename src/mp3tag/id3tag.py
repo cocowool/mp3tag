@@ -13,6 +13,9 @@ class id3tag():
         fh = open(file_name, "rb")
         head_bin = fh.read(10)
         print(head_bin)
+        if head_bin[0:3] == b'ID3':
+            print("ID3v2 found.")
+
 
     def get_tag(self, file_name):
         # print("Tag reader version is 0.0.1")
