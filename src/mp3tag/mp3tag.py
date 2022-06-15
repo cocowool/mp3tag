@@ -5,7 +5,7 @@ from numpy import full
 # Return the package version
 def get_version(file_path):
     i3t = id3tag()
-    i3t.get_version(file_path)
+    i3t.tag_analyze(file_path)
     # print("mp3tag version is 0.0.2")
 
 # Find mp3 file under specific folder

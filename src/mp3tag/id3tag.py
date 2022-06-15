@@ -8,7 +8,8 @@ class id3tag():
         print("id3tag init.")
 
     # Analyze the file and which id3 version
-    def get_version(self, file_name):
+    # Condition: 1. ID3v1 and ID3v2; 2. ID3v2 only; 3. ID3v1 only; 4. None;
+    def tag_analyze(self, file_name):
         fh = open(file_name, "rb")
         head_bin = fh.read(10)
         print(head_bin)
@@ -31,6 +32,14 @@ class id3tag():
             return self.getTag(tag_data)
         except Exception as e:
             print(e)
+
+    # Remove ID3v1 Tag information
+    def remove_id3v1(self):
+        pass
+
+    # Remove ID3v2 Tag information
+    def remove_id3v2(self):
+        pass
 
     # Detect the encoding and decode
     def decodeData(self, bin_seq):
