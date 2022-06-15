@@ -15,7 +15,8 @@ from mp3tag import mp3tag
 # import mp3tag as mpt
 # import mp3tag as m3g
 
-music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
+# music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
+music_path = '/Users/shiqiang/Music/Music/Media.localized'
 
 # mp3tag.get_version()
 # mp3tag.search_folder(music_path)
@@ -33,4 +34,4 @@ mp3tag.get_version(file_path)
 # # mpt.get_version()
 
 # mp3tag.get_version()
-# mp3tag.search_folder(music_path)
+mp3tag.search_folder(music_path)

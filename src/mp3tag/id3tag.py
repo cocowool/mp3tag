@@ -22,6 +22,16 @@ class id3tag():
             # print(int(hex_data[6:8]))
             # print(head_bin[4].decode('utf-8'))
 
+        # Move pointer to end of file
+        fh.seek(0, 2)
+        if fh.tell() > 128:
+            # Move pointer to 128 bytes position
+            fh.seek(-128, 2)
+            tag_data = fh.read()
+            if tag_data[0:3] == b'TAG':
+                print("ID3v1 found.")
+                print("Version: ID3v1")
+
 
     def get_tag(self, file_name):
         # print("Tag reader version is 0.0.1")
