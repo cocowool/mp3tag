@@ -94,6 +94,10 @@ class id3tag():
             tags['album'] = tag_data[63:93].strip(STRIP_CHARS)
             if(tags['album']):
                 tags['album'] = tags['album'].decode(char_detect['encoding'])
+
+            tags['comment'] = tag_data[97:127].strip(STRIP_CHARS)
+            if(tags['comment']):
+                tags['comment'] = tags['comment'].decode(char_detect['encoding'])
         else:
             tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
 
@@ -108,17 +112,14 @@ class id3tag():
             if(tags['album']):
                 tags['album'] = self.decodeData(tags['album'])
 
-        tags['year'] = tag_data[93:97].strip(STRIP_CHARS)
-        # if(tags['year']):
-        #     tags['year'] = decodeData(tags['year'])
+            tags['comment'] = tag_data[97:127].strip(STRIP_CHARS)
+            if(tags['comment']):
+                tags['comment'] = self.decodeData(tags['comment'])
 
-        tags['comment'] = tag_data[97:127].strip(STRIP_CHARS)
-        #@TODO Need to analyze comment to verfiy v1 or v1.1
-        if(tags['comment']):
-            tags['comment'] = self.decodeData(tags['comment'])
+
+        tags['year'] = int(tag_data[93:97].strip(STRIP_CHARS))
 
         tags['genre'] = ord(tag_data[127:128])
-        # tags['albumartis'] = tag_data[].strip(STRIP_CHARS)
 
         return tags
 
