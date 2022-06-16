@@ -79,18 +79,34 @@ class id3tag():
 
         tags = {}
         tags['file_name'] = file_name
-        tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
 
-        if(tags['title']):
-            tags['title'] = self.decodeData(tags['title'])
+        char_detect = chardet.detect(tag_data[3:93])
+        if char_detect['confidence'] > 0.9:
+            tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
 
-        tags['artist'] = tag_data[33:63].strip(STRIP_CHARS)
-        if(tags['artist']):
-            tags['artist'] = self.decodeData(tags['artist'])
+            if(tags['title']):
+                tags['title'] = tags['title'].decode(char_detect['encoding'])
 
-        tags['album'] = tag_data[63:93].strip(STRIP_CHARS)
-        if(tags['album']):
-            tags['album'] = self.decodeData(tags['album'])
+            tags['artist'] = tag_data[33:63].strip(STRIP_CHARS)
+            if(tags['artist']):
+                tags['artist'] = tags['artist'].decode(char_detect['encoding'])
+
+            tags['album'] = tag_data[63:93].strip(STRIP_CHARS)
+            if(tags['album']):
+                tags['album'] = tags['album'].decode(char_detect['encoding'])
+        else:
+            tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
+
+            if(tags['title']):
+                tags['title'] = self.decodeData(tags['title'])
+
+            tags['artist'] = tag_data[33:63].strip(STRIP_CHARS)
+            if(tags['artist']):
+                tags['artist'] = self.decodeData(tags['artist'])
+
+            tags['album'] = tag_data[63:93].strip(STRIP_CHARS)
+            if(tags['album']):
+                tags['album'] = self.decodeData(tags['album'])
 
         tags['year'] = tag_data[93:97].strip(STRIP_CHARS)
         # if(tags['year']):
