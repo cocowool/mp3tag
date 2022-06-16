@@ -20,10 +20,10 @@ def search_folder(mp3_folder_path = ''):
                 full_file_name = os.path.join(parent, file_name)
                 # print(full_file_name)
 
-                print(full_file_name)
-                mtr.tag_analyze(full_file_name)
+                # print(full_file_name)
+                t_info  = mtr.tag_analyze(full_file_name)
                 # t_info = mtr.get_tag(full_file_name)
-                # print(t_info)
+                print(t_info)
 
 # Get single mp3 file's tag info
 # 获取单个 mp3 文件的 tag 信息

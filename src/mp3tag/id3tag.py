@@ -9,16 +9,22 @@ class id3tag():
 
     # Analyze the file and which id3 version
     # Condition: 1. ID3v1 and ID3v2; 2. ID3v2 only; 3. ID3v1 only; 4. None;
+    # Return { file_name: [ID3v2, ID3v1] }
     def tag_analyze(self, file_name):
+        return_obj = {}
+        return_obj[file_name] = []
+
         fh = open(file_name, "rb")
         head_bin = fh.read(10)
 
         fhex = open(file_name, "rb")
         hex_data = fhex.read().hex()
-        print(head_bin)
+        # print(head_bin)
+
         if head_bin[0:3] == b'ID3':
-            print("ID3v2 found.")
-            print("Version: ID3v2." + str(int(hex_data[6:8])) )
+            # print("ID3v2 found.")
+            # print("Version: ID3v2." + str(int(hex_data[6:8])) )
+            return_obj[file_name].append('ID3v2.' + str(int(hex_data[6:8])) )
             # print(int(hex_data[6:8]))
             # print(head_bin[4].decode('utf-8'))
 
@@ -29,9 +35,14 @@ class id3tag():
             fh.seek(-128, 2)
             tag_data = fh.read()
             if tag_data[0:3] == b'TAG':
-                print("ID3v1 found.")
-                print("Version: ID3v1")
+                # print("ID3v1 found.")
+                # print("Version: ID3v1")
+                return_obj[file_name].append('ID3v1')
 
+        fh.close()
+        fhex.close()
+
+        return return_obj
 
     def get_tag(self, file_name):
         # print("Tag reader version is 0.0.1")
