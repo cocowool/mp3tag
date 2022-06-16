@@ -44,7 +44,8 @@ class id3tag():
 
         return return_obj
 
-    def get_tag(self, file_name):
+    # Get Mp3 File Tag Information, return all by default
+    def get_tag(self, file_name, version = 'both'):
         # print("Tag reader version is 0.0.1")
         try:
             fh = open(file_name, "rb")
