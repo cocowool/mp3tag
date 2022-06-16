@@ -1,3 +1,5 @@
+# conding:utf-8
+
 import sys
 from tinytag import TinyTag
 # from mp3tag.mp3tag import mp3tag
@@ -21,7 +23,8 @@ music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
 # mp3tag.get_version()
 # mp3tag.search_folder(music_path)
 
-file_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/RADWIMPS (ラッドウィンプス)-針と棘.mp3'
+file_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/张信哲-多想.mp3'
+# file_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/RADWIMPS (ラッドウィンプス)-針と棘.mp3'
 mp3tag.get_tag(file_path)
 
 mp3tag.get_version(file_path)

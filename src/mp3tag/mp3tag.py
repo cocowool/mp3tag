@@ -1,3 +1,5 @@
+# conding:utf-8
+
 import os
 from mp3tag.id3tag import id3tag
 from numpy import full

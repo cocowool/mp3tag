@@ -1,3 +1,5 @@
+# conding:utf-8
+
 import os
 import string
 import base64
@@ -123,7 +125,8 @@ class id3tag():
                 return ''
         else:
             try:
-                return bin_seq.decode('utf-8')
+                print(result)
+                return bin_seq.decode('gbk')
             except UnicodeDecodeError as e:
                 print('Decode Failed : ' + str(e))
                 return ''
