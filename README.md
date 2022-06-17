@@ -21,7 +21,7 @@ music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
 
 mpt = mp3tag()
 mpt.get_version()
-mpt.search_folder(music_path)
+mpt.analyze_folder(music_path)
 ```
 
 Result

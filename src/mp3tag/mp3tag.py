@@ -27,10 +27,8 @@ def analyze_folder(mp3_folder_path = ''):
                 # t_info = mtr.get_tag(full_file_name)
                 print(t_info)
 
-
-
 # Get single mp3 file's tag info
-# 获取单个 mp3 文件的 tag 信息
+# file_path can be a specific file name or a folder path
 def get_tag(file_path):
     i3t = id3tag()
 
