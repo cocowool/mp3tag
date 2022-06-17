@@ -58,6 +58,7 @@ class id3tag():
     # Exception { error : xxxx }
     def get_id3v1(self, file_name):
         # STRIP_CHARS = compat.b(string.whitespace) + b"\x00"
+        # Strip empty characters
         STRIP_CHARS = b"\x00"
 
         try:
@@ -82,43 +83,56 @@ class id3tag():
 
         char_detect = chardet.detect(tag_data[3:93])
         if char_detect['confidence'] > 0.9:
-            tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
 
-            if(tags['title']):
+            tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
+            if len(tags['title']) > 0:
                 tags['title'] = tags['title'].decode(char_detect['encoding'])
+            else:
+                tags['title'] = ''
 
             tags['artist'] = tag_data[33:63].strip(STRIP_CHARS)
-            if(tags['artist']):
+            if len(tags['artist']) > 0:
                 tags['artist'] = tags['artist'].decode(char_detect['encoding'])
+            else:
+                tags['artis'] = ''
 
             tags['album'] = tag_data[63:93].strip(STRIP_CHARS)
-            if(tags['album']):
+            if len(tags['album']) > 0:
                 tags['album'] = tags['album'].decode(char_detect['encoding'])
+            else:
+                tags['album'] = 0
 
             tags['comment'] = tag_data[97:127].strip(STRIP_CHARS)
-            if(tags['comment']):
+            if len(tags['comment']) > 0:
                 tags['comment'] = tags['comment'].decode(char_detect['encoding'])
+            else:
+                tags['comment'] = ''
         else:
             tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
-
-            if(tags['title']):
+            if len(tags['title']) > 0:
                 tags['title'] = self.decodeData(tags['title'])
+            else:
+                tags['title'] = 0
 
             tags['artist'] = tag_data[33:63].strip(STRIP_CHARS)
-            if(tags['artist']):
+            if len(tags['artist']) > 0:
                 tags['artist'] = self.decodeData(tags['artist'])
+            else:
+                tags['artis'] = 0
 
             tags['album'] = tag_data[63:93].strip(STRIP_CHARS)
-            if(tags['album']):
+            if len(tags['album']):
                 tags['album'] = self.decodeData(tags['album'])
+            else:
+                tags['album'] = ''
 
             tags['comment'] = tag_data[97:127].strip(STRIP_CHARS)
-            if(tags['comment']):
+            if len(tags['comment']) > 0:
                 tags['comment'] = self.decodeData(tags['comment'])
-
+            else:
+                tags['comment'] = ''
 
         tags['year'] = int(tag_data[93:97].strip(STRIP_CHARS))
-
         tags['genre'] = ord(tag_data[127:128])
 
         return tags
