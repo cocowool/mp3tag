@@ -12,6 +12,10 @@ Tools for read and modify mp3 tag information, you can search wiki to know more 
 * Read mp3 idv3 information under specific folder
 * output attribute information in utf-8
 
+## Requirement
+
+* chardet 
+
 ## Usage
 
 ```python
