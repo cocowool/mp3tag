@@ -39,6 +39,7 @@ $ python3 examples/tag_example.py
 
 ## Release Notes
 
+* 0.0.4 : little fix, reimport chardet
 * 0.0.3 : Rename module name, modify example and readme
 
 ## Reference

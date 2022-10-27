@@ -5,7 +5,7 @@ import string
 import base64
 
 # from pyparsing import And
-# import chardet
+import chardet
 
 class id3tag():
     def __init__(self):

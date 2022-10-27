@@ -1,7 +1,7 @@
 import setuptools
 # from setuptools import setup, find_packages
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 DESCRIPTION = 'MP3 tag information reader and writer.'
 LONG_DESCRIPTION = 'MP3 contains many information about the music and stored in the tag. This package support read and write id3v2 tag to the mp3 file.'
 
