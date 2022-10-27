@@ -2,7 +2,7 @@
 
 import os
 from mp3tag.id3tag import id3tag
-from numpy import full
+# from numpy import full
 
 # Return the package version
 def get_version(file_path):
@@ -29,8 +29,8 @@ def analyze_folder(mp3_folder_path = ''):
 
 # Get single mp3 file's tag info
 # file_path can be a specific file name or a folder path
-def get_tag(file_path):
+def get_tag(file_path, char_detect = False):
     i3t = id3tag()
 
-    t_info = i3t.get_tag(file_path)
+    t_info = i3t.get_tag(file_path, char_detect)
     print(t_info)

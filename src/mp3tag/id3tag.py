@@ -3,7 +3,9 @@
 import os
 import string
 import base64
-import chardet
+
+# from pyparsing import And
+# import chardet
 
 class id3tag():
     def __init__(self):
@@ -48,15 +50,15 @@ class id3tag():
         return return_obj
 
     # Get Mp3 File Tag Information, return all by default
-    def get_tag(self, file_name, version = 'both'):
+    def get_tag(self, file_name, char_detect_flag = False, version = 'both'):
         # print("Tag reader version is 0.0.1")
-        return self.get_id3v1(file_name)
+        return self.get_id3v1(file_name, char_detect_flag)
 
     # Get ID3v1 tag data
     # Format
     # { file_name: xxx, title: xxx, artis: xxx, album: xxx, year: xxx, comment: xxx, genre: x }
     # Exception { error : xxxx }
-    def get_id3v1(self, file_name):
+    def get_id3v1(self, file_name, char_detect_flag = False):
         # STRIP_CHARS = compat.b(string.whitespace) + b"\x00"
         # Strip empty characters
         STRIP_CHARS = b"\x00"
@@ -77,12 +79,16 @@ class id3tag():
 
         except Exception as e:
             print(e)
+            return "No file error !"
 
         tags = {}
         tags['file_name'] = file_name
 
-        char_detect = chardet.detect(tag_data[3:93])
-        if char_detect['confidence'] > 0.9:
+
+        if char_detect_flag == True:
+            char_detect = chardet.detect(tag_data[3:93])
+
+        if char_detect_flag and char_detect['confidence'] > 0.9:
 
             tags['title'] = tag_data[3:33].strip(STRIP_CHARS)
             if len(tags['title']) > 0:

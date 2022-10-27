@@ -19,13 +19,13 @@ Tools for read and modify mp3 tag information, you can search wiki to know more 
 ## Usage
 
 ```python
-from mp3tag import mp3tag
+from mp3tag import musictag
 
 music_path = '/Users/shiqiang/Downloads/old_mbp_files/OldMBP-Music/'
 
-mpt = mp3tag()
-mpt.get_version()
-mpt.analyze_folder(music_path)
+# mpt = mp3tag()
+# mpt.get_version()
+musictag.analyze_folder(music_path)
 ```
 
 Result
@@ -37,6 +37,9 @@ $ python3 examples/tag_example.py
 
 ```
 
+## Release Notes
+
+* 0.0.3 : Rename module name, modify example and readme
 
 ## Reference
 * [id3.org](https://id3.org/Home)
